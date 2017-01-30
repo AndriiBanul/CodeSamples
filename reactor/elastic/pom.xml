@@ -10,20 +10,16 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <properties>
-        <elasticsearch.version>1.7.2</elasticsearch.version>
-    </properties>
-
     <groupId>com.andrii.main</groupId>
     <artifactId>elastic</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-elasticsearch</artifactId>
-            <version>1.7.1</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
         </dependency>
+
     </dependencies>
 
     <build>
