@@ -1,0 +1,86 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+
+<style>
+  table, th, td {
+      border: 1px solid black;
+  }
+</style>
+    <meta charset="utf-8" />
+    <title>React Tutorial</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.2/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.2/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
+  </head>
+  <body>
+    <div id="content"></div>    
+    <script type="text/babel">
+    var TableView = React.createClass({
+      render: function(){
+        return(
+        <div>
+          <div width="100px" height="350px" font-color="blue">
+           <table>
+              <thead>
+                <tr>
+                  <th>English</th>
+                  <th>Translation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Dog</td>
+                  <td>Собака</td>
+                </tr>
+                <tr>
+                  <td>Pig</td>
+                  <td>Свиня</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+         </div>
+          )
+      }
+    });
+
+	var CommentBox = React.createClass({
+		render: function() {
+			return (
+			  <div className="commentBox">
+				Hello, world! I am a CommentBox.
+			  </div>
+			);
+		}
+	});
+
+<!--
+	$('th:nth-child(2)').hide();
+    $('td:nth-child(2)').hide();
+
+    $('th:nth-child(2)').show();
+    $('td:nth-child(2)').show();
+-->
+
+
+	var MyBox = React.createClass({
+		render: function(){
+			return (<div>Hi I am Andrew!!!</div>);
+		}
+	});
+
+    ReactDOM.render(
+      <div>
+        <CommentBox />
+        <MyBox />
+        <TableView />
+      </div>,
+      document.getElementById('content')
+    );
+    </script>
+  </body>
+</html>

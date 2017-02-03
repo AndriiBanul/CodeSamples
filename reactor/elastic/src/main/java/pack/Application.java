@@ -44,6 +44,7 @@ public class Application implements CommandLineRunner{
     }
 
     private Movie getFirstMovie() {
+        //http://localhost:9200/elastic_sample/movie/1?pretty
         Movie firstMovie = new Movie();
         firstMovie.setId("1");
         firstMovie.setRating(9.6d);
