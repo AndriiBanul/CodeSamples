@@ -19,7 +19,7 @@
   <body>
     <div id="content"></div>    
     <script type="text/babel">
-    var TableView = React.createClass({
+    var TableView1 = React.createClass({
       render: function(){
         return(
         <div>
@@ -50,7 +50,15 @@
 
     var data = [
         {id: 1, author: "Pete Hunt", text: "This is one comment"},
+        {id: 3, author: "Andrew", text: "This is Andrew"},
         {id: 2, author: "Jordan Walke", text: "This is *another* comment"}
+    ];
+
+    var dictionary = [
+        {id: 1, english: "Dog", ukrainian: "Собака"},
+        {id: 2, english: "Pig", ukrainian: "Свиня"},
+        {id: 3, english: "Horse", ukrainian: "Кінь"},
+        {id: 4, english: "Mouse", ukrainian: "Миша"}
     ];
 
     var CommentBox = React.createClass({
@@ -89,11 +97,63 @@
         render: function() {
             return (
                 <div className="comment">
-                <h2 className="commentAuthor">
-                {this.props.author}
-                 </h2>
-                {this.props.children}
+                    <h2 className="commentAuthor">
+                    {this.props.author}
+                     </h2>
+                    {this.props.children}
                 </div>
+            );
+        }
+    });
+
+    var TableView = React.createClass({
+        render: function(){
+            return(
+                <table>
+                    <TableHeader></TableHeader>
+                    <TableBody dictionary={this.props.dictionary}></TableBody>
+                </table>
+            );
+        }
+    });
+
+    var TableHeader = React.createClass({
+        render: function(){
+            return(
+                <thead>
+                    <tr>
+                      <th>English</th>
+                      <th>Translation</th>
+                    </tr>
+                </thead>
+            );
+        }
+    });
+
+    var TableBody = React.createClass({
+        render: function(){
+            var rowsNode = this.props.dictionary.map(function(row) {
+                return (
+                    <TableRow english={row.english} ukrainian={row.ukrainian} key={row.id}>
+                    </TableRow>
+                );
+            });
+
+            return(
+                <tbody>
+                    {rowsNode}
+                </tbody>
+            );
+        }
+    });
+
+    var TableRow = React.createClass({
+        render: function(){
+            return(
+                <tr>
+                  <td>{this.props.english}</td>
+                  <td>{this.props.ukrainian}</td>
+                </tr>
             );
         }
     });
@@ -106,9 +166,7 @@
 
     ReactDOM.render(
       <div>
-        <CommentBox data={data} />
-        <MyBox />
-        <TableView />
+        <TableView dictionary={dictionary}/>
       </div>,
       document.getElementById('content')
     );
