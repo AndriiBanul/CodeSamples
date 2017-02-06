@@ -19,34 +19,6 @@
   <body>
     <div id="content"></div>    
     <script type="text/babel">
-    var TableView1 = React.createClass({
-      render: function(){
-        return(
-        <div>
-          <div width="100px" height="350px" font-color="blue">
-           <table>
-              <thead>
-                <tr>
-                  <th>English</th>
-                  <th>Translation</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Dog</td>
-                  <td>Собака</td>
-                </tr>
-                <tr>
-                  <td>Pig</td>
-                  <td>Свиня</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-         </div>
-          )
-      }
-    });
 
     var data = [
         {id: 1, author: "Pete Hunt", text: "This is one comment"},
@@ -60,51 +32,6 @@
         {id: 3, english: "Horse", ukrainian: "Кінь"},
         {id: 4, english: "Mouse", ukrainian: "Миша"}
     ];
-
-    var CommentBox = React.createClass({
-      render: function() {
-        return (
-          <div className="commentBox">
-            <h1>Comments</h1>
-            <CommentList data={this.props.data} /> //new
-
-          </div>
-        );
-      }
-    });
-
-	var CommentList = React.createClass({
-  render: function() {
-    //new start
-    var commentNodes = this.props.data.map(function(comment) {
-      return (
-        <Comment author={comment.author} key={comment.id}>
-          {comment.text}
-        </Comment>
-      );
-    });
-    //new end
-    return (
-      <div className="commentList">
-        {commentNodes} // new
-      </div>
-    );
-  }
-});
-
-
-	var Comment = React.createClass({
-        render: function() {
-            return (
-                <div className="comment">
-                    <h2 className="commentAuthor">
-                    {this.props.author}
-                     </h2>
-                    {this.props.children}
-                </div>
-            );
-        }
-    });
 
     var TableView = React.createClass({
         render: function(){
@@ -157,12 +84,6 @@
             );
         }
     });
-
-	var MyBox = React.createClass({
-		render: function(){
-			return (<div>Hi I am Andrew!!!</div>);
-		}
-	});
 
     ReactDOM.render(
       <div>
