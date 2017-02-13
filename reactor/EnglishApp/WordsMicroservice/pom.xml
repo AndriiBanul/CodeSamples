@@ -4,9 +4,22 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>com.andrii.main</groupId>
+        <artifactId>EnglishApp</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
     <groupId>com.andrii.main</groupId>
-    <artifactId>reactJS</artifactId>
+    <artifactId>WordsMicroservice</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>WMSEngine</module>
+        <module>WMSSDK</module>
+        <module>WMSCommon</module>
+    </modules>
 
     
 </project>
