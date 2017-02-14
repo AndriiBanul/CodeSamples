@@ -20,13 +20,7 @@
     <div id="content"></div>    
     <script type="text/babel">
 
-    var data = [
-        {id: 1, author: "Pete Hunt", text: "This is one comment"},
-        {id: 3, author: "Andrew", text: "This is Andrew"},
-        {id: 2, author: "Jordan Walke", text: "This is *another* comment"}
-    ];
-
-    var dictionary = [
+ var dictionary = [
         {id: 1, english: "Dog", ukrainian: "Собака"},
         {id: 2, english: "Pig", ukrainian: "Свиня"},
         {id: 3, english: "Horse", ukrainian: "Кінь"},
@@ -34,11 +28,31 @@
     ];
 
     var TableView = React.createClass({
+        componentDidMount: function() {
+            $.ajax({
+                url: this.props.url,
+                dataType: 'json',
+                cache: false,
+                success: function(data) {
+                    console.log(data);
+                    //this.props.dictionary = data;
+                    this.setState({dictionary: data});
+                  }.bind(this),
+                  error: function(xhr, status, err) {
+                  }.bind(this)
+             });
+        },
+
+        getInitialState: function() {
+            console.log("getInitialState");
+            return {dictionary: []};
+        },
+
         render: function(){
             return(
                 <table>
                     <TableHeader></TableHeader>
-                    <TableBody dictionary={this.props.dictionary}></TableBody>
+                    <TableBody dictionary={this.state.dictionary}></TableBody>
                 </table>
             );
         }
@@ -59,6 +73,8 @@
 
     var TableBody = React.createClass({
         render: function(){
+            console.log("table");
+            console.log(this.props.dictionary);
             var rowsNode = this.props.dictionary.map(function(row) {
                 return (
                     <TableRow english={row.english} ukrainian={row.ukrainian} key={row.id}>
@@ -87,7 +103,7 @@
 
     ReactDOM.render(
       <div>
-        <TableView dictionary={dictionary}/>
+            <TableView url="http://localhost:8080/all-words"/>
       </div>,
       document.getElementById('content')
     );
