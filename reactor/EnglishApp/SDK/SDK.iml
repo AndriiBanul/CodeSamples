@@ -19,5 +19,8 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-beans:4.3.5.RELEASE" level="project" />
     <orderEntry type="module" module-name="Common" />
     <orderEntry type="module" module-name="WMSCommon" />
+    <orderEntry type="library" name="Maven: org.springframework.data:spring-data-commons:1.12.6.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.22" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.slf4j:jcl-over-slf4j:1.7.22" level="project" />
   </component>
 </module>

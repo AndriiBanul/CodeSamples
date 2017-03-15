@@ -3,10 +3,15 @@ package com.wmscommon;
 /**
  * Created by Andrii_Banul on 2/6/2017.
  */
+
+import org.springframework.data.annotation.Id;
+
 public class EnglishWord {
+
     private String english;
     private String ukrainian;
     private String russian;
+    @Id
     private String id;
 
     public String getId() {
