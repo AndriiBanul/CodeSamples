@@ -13,7 +13,6 @@
         <module>mongodb</module>
         <module>datarest</module>
         <module>elastic</module>
-        <module>mobgo-elastic</module>
         <module>reactJS</module>
         <module>EnglishApp</module>
     </modules>
