@@ -7,16 +7,18 @@ import java.util.Arrays;
  */
 public class QuickSort {
     public int [] sort(int [] arr){
-        int mid = (arr.length - 1) / 2;
+        int mid = 3;//(arr.length - 1) / 2;
         System.out.println("mid = " + mid);
         for(int i = 0; i<= arr.length - 1; i++){
             int leftValue = i;
             int rightValue = arr.length - 1 - i;
             if(arr[mid]<arr[leftValue]){
                 this.moveToTheRight(mid, leftValue, arr);
+                mid = mid - 1;
             }
             if(arr[mid]>arr[rightValue]){
                 moveToTheLeft(mid, rightValue, arr);
+                mid = mid + 1;
             }
         }
         return arr;
